@@ -4,6 +4,7 @@ import models.NewAccountModel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AccountsPage;
+import pages.LastCreatedAccountPage;
 import pages.LoginPage;
 import testdata.PrepareNewAccountData;
 
@@ -20,10 +21,8 @@ public class CreateAccountTest extends BaseTest {
                 .openNewAccountModal()
                 .fillInAccountForm(accountModel);
 
-
-
-
-        System.out.println("");
+        LastCreatedAccountPage lastCreatedAccountPage = new LastCreatedAccountPage(driver);
+        Assert.assertEquals(accountModel.getAccountName(), lastCreatedAccountPage.getLastCreatedAccountName());
 
     }
 }

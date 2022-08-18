@@ -11,8 +11,6 @@ public class AccountsPage extends BasePage {
     private WebElement newButton;
 
 
-
-
     public AccountsPage(WebDriver driver) {
         super(driver);
     }
@@ -26,4 +24,6 @@ public class AccountsPage extends BasePage {
         newButton.click();
         return new NewAccountModalPage(driver);
     }
+
+
 }

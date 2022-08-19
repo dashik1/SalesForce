@@ -4,7 +4,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import utilits.PropertyManager;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ChromeDriverManager extends DriverManager {

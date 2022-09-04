@@ -3,6 +3,7 @@ package pages;
 import elements.DropdownList;
 import elements.TextArea;
 import elements.TextInput;
+import io.qameta.allure.Step;
 import models.NewAccountModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -25,6 +26,7 @@ public class NewAccountModalPage extends BasePage {
         super(driver);
     }
 
+    @Step("Fill in all inputs with valid data on the New Account modal page")
     public void fillInAccountForm(NewAccountModel newAccount) {
         LOGGER.debug("Attempt to fill in all inputs on the New Account modal page");
         accountNameInput.sendKeys(newAccount.getAccountName());

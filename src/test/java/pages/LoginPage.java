@@ -2,6 +2,7 @@ package pages;
 
 import constants.Credentials;
 import constants.Urls;
+import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +28,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Login to Salesforce")
     public void loginToSalesforce() {
         LOGGER.debug(String.format("Attempt to login to maim page: %s", Urls.LOGIN));
         driver.get(Urls.LOGIN);

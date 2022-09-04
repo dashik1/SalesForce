@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Description;
 import models.NewAccountModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ public class CreateAccountTest extends BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(CreateAccountTest.class.getName());
 
     @Test
+    @Description("New account creation")
     public void createAccountTest() {
         LoginPage loginPage = new LoginPage(driver);
         LOGGER.info(String.format("Page %s initialized", LoginPage.class.getName()));

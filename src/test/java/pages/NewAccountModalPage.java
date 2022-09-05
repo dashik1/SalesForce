@@ -4,11 +4,15 @@ import elements.DropdownList;
 import elements.TextArea;
 import elements.TextInput;
 import models.NewAccountModel;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class NewAccountModalPage extends BasePage {
+
+    private static final Logger LOGGER = LogManager.getLogger(NewAccountModalPage.class.getName());
 
     @FindBy(xpath = "//div[contains(@class, 'modal-body')]//span[text()='Account Name']//parent::label//following-sibling::div//input")
     private WebElement accountNameInput;
@@ -22,6 +26,7 @@ public class NewAccountModalPage extends BasePage {
     }
 
     public void fillInAccountForm(NewAccountModel newAccount) {
+        LOGGER.debug("Attempt to fill in all inputs on the New Account modal page");
         accountNameInput.sendKeys(newAccount.getAccountName());
         new TextInput(driver, "Phone").inputText(newAccount.getPhone());
         new TextInput(driver, "Fax").inputText(newAccount.getFax());
@@ -41,6 +46,7 @@ public class NewAccountModalPage extends BasePage {
         new TextInput(driver, "Shipping State/Province").inputText(newAccount.getShippingState());
         new TextInput(driver, "Shipping Zip/Postal Code").inputText(newAccount.getShippingZipCode());
         new TextInput(driver, "Shipping Country").inputText(newAccount.getShippingCountry());
+        LOGGER.debug(String.format("Attempt to click %s button", saveButton));
         saveButton.click();
     }
 }

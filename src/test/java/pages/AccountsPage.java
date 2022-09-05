@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Urls;
+import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -19,12 +20,14 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open Accounts page")
     public AccountsPage openAccountsPage() {
         LOGGER.debug(String.format("Attempt to open Account page by url: %s", Urls.LOGIN.concat(Urls.ACCOUNTS)));
         driver.get(Urls.LOGIN.concat(Urls.ACCOUNTS));
         return this;
     }
 
+    @Step("Open New Account modal page")
     public NewAccountModalPage openNewAccountModal() {
         LOGGER.debug(String.format("Attempt to click to %s button", newButton));
         newButton.click();
